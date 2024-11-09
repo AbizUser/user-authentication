@@ -1,4 +1,5 @@
-import InputField from '@/app/features/auth/components/inputField'
+import Button from '@/app/features/auth/components/Button'
+import InputField from '@/app/features/auth/components/InputField'
 import React from 'react'
 
 const Signup = () => {
@@ -25,7 +26,7 @@ const Signup = () => {
           placeholder='パスワード'
         />
         <div className='mt-4'>
-          <button></button>
+          <Button type='submit' colorClass='bg-blue-500 hover:bg-blue-700'>新規登録</Button>
         </div>
       </form>
     </div>
