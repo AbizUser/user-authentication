@@ -1,14 +1,22 @@
 import React from 'react'
+import { UseFormRegister } from 'react-hook-form';
 
 interface InputFieldProps {
   name: string;
   type: string;
   label: string;
   placeholder?: string; //?オプショナルチェーンを付けて必須項目ではなくした。
+  register: UseFormRegister<any>;
 }
 
 
-const InputField = ({ name, label, type, placeholder }: InputFieldProps) => {
+const InputField = ({
+  name,
+  label,
+  type,
+  placeholder,
+  register,
+}: InputFieldProps) => {
   return (
     <div>
       <label 
@@ -21,6 +29,7 @@ const InputField = ({ name, label, type, placeholder }: InputFieldProps) => {
         id={name}
         placeholder={placeholder} 
         className='border rounded w-full shadow py-3 px-4 text-gray-700 leading-tight focus:outline-none'
+        {...register(name, { required: "この項目は必須です。"})}
       />
     </div>
   )
