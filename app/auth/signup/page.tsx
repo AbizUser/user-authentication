@@ -2,6 +2,7 @@
 import Button from '@/app/features/auth/components/Button'
 import InputField from '@/app/features/auth/components/InputField'
 import { useSignupForm } from '@/app/features/auth/hooks/useSignupForm'
+import Link from 'next/link'
 import React from 'react'
 
 const Signup = () => {
@@ -51,6 +52,12 @@ const Signup = () => {
           <Button type='submit' colorClass='bg-blue-500 hover:bg-blue-700'>新規登録</Button>
         </div>
       </form>
+      <Link
+        href={"/auth/login"}
+        className='mt-4 block text-center text-blue-400'
+      >
+        既に登録済みの方はこちら
+      </Link>
     </div>
   )
 }
