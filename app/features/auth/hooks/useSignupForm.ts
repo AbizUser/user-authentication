@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useSignupFormSchema } from "@/app/auth/signup/lib/signupFormSchema";
+import { useSignupFormSchema } from "@/app/features/auth/lib/FormSchema";
 import { z } from "zod";
 
 export const useSignupForm = () => {
