@@ -1,4 +1,5 @@
 "use client"
+
 import Button from '@/app/features/auth/components/Button'
 import InputField from '@/app/features/auth/components/InputField'
 import { useSignupForm } from '@/app/features/auth/hooks/useSignupForm'
@@ -14,7 +15,7 @@ const Signup = () => {
       <p className='text-red-500 text-center'>{error}</p>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <InputField 
-          label='ユーザ名' 
+          label='ユーザ-名' 
           name='username' 
           type='text'
           placeholder='ユーザー名'
@@ -32,10 +33,8 @@ const Signup = () => {
           placeholder='メールアドレス'
           register={form.register}
         />
-                {form.formState.errors.email && (
-          <p className='text-red-500'>
-            {form.formState.errors.email?.message}
-          </p>
+          {form.formState.errors.email && (
+          <p className='text-red-500'>{form.formState.errors.email?.message}</p>
         )}
         <InputField 
           label='パスワード' 
@@ -55,12 +54,11 @@ const Signup = () => {
       </form>
       <Link
         href={"/auth/login"}
-        className='mt-4 block text-center text-blue-400'
-      >
+        className='mt-4 block text-center text-blue-400'>
         既に登録済みの方はこちら
       </Link>
     </div>
-  )
-}
+  );
+};
 
 export default Signup
