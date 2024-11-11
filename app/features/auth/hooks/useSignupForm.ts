@@ -28,17 +28,25 @@ export const useSignupForm = () => {
       })
 
       if (signUpError) {
-        console.log(signUpError);
+        // console.log(signUpError);
+        setError(signUpError.message);
         throw signUpError;
       }
       const { error: userError} = await supabase
       .from("User")
       .insert([{ id: data.user?.id, username, email }]);
-      if (userError) {
-        console.log(userError.message);
-        setError(userError.message);
-        throw userError
+
+    if (userError) {
+      // console.log(userError);
+      if (
+        userError?.message.includes(
+          "duplicate key value violates unique constraint"
+        )
+      ) {
+        setError("既に存在するユーザです");
       }
+      return;
+    }
 
       router.push("auth/login")
     } catch (err) {
